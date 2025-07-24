@@ -1,1 +1,92 @@
-<h1>It works!</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Moved</title>
+  <meta http-equiv="refresh" content="15; URL=https://compass.fbk.eu">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('ariane-6-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    /* Dark overlay */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+      max-width: 90%;
+      width: 480px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
+
+    a {
+      color: #4dd0e1;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #countdown {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>This website has moved to a new address.</h1>
+    <p>You will be redirected automatically or you can click here:</p>
+    <p><a href="https://compass.fbk.eu">https://compass.fbk.eu</a></p>
+    <noscript>You will be redirected in 15 seconds.</noscript>
+    <p id="countdown"></p>
+  </div>
+
+  <script>
+    document.getElementById("countdown").innerHTML = "Redirecting in <span id='timer'>15</span> seconds...";
+
+    setTimeout(() => {
+      let seconds = 15;
+      const timerSpan = document.getElementById('timer');
+      const countdown = setInterval(() => {
+        seconds--;
+        timerSpan.textContent = seconds;
+        if (seconds <= 0) clearInterval(countdown);
+      }, 1000);
+    }, 1);
+  </script>
+</body>
+
+</html>
